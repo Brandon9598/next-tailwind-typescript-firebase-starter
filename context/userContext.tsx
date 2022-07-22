@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import { createFirebaseApp } from "../utils/firebase/clientApp";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { auth, onAuthStateChanged } from "../utils/firebase/clientApp";
+import axios from "axios";
 import { User } from "../types/User";
 
 export interface IUserContext {
@@ -17,14 +17,14 @@ export default function UserContextComponent({ children }) {
 
 	useEffect(() => {
 		// Listen authenticated user
-		const app = createFirebaseApp();
-		const auth = getAuth(app);
 		const unsubscriber = onAuthStateChanged(auth, async (user) => {
 			try {
 				if (user) {
+					axios.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
 					// User is signed in.
-					const { uid, displayName, email, photoURL } = user;
+					const { uid, displayName, email } = user;
 					// You could also look for the user doc in your Firestore (if you have one):
+
 					// const userDoc = await firebase.firestore().doc(`users/${uid}`).get()
 					setUser({ uid, displayName, email });
 				} else setUser(null);

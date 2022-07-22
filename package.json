@@ -10,6 +10,7 @@
 		"format:fix": "prettier --write --ignore-path .gitignore ."
 	},
 	"dependencies": {
+		"axios": "^0.27.2",
 		"daisyui": "^2.19.1",
 		"firebase": "^9.9.0",
 		"next": "latest",
