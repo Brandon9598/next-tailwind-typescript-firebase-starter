@@ -1,5 +1,3 @@
-const IndexPage = () => (
-  <h1 className="text-3xl font-bold underline">Hello world!</h1>
-);
+const IndexPage = () => <h1 className="text-3xl font-bold underline">Hello world!</h1>;
 
 export default IndexPage;
