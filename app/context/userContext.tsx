@@ -1,7 +1,7 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import { auth, onAuthStateChanged } from "../utils/firebase/clientApp";
 import axios from "axios";
-import { User } from "../types/User";
+import { User } from "@backend/User";
 
 export interface IUserContext {
 	user: User;
@@ -17,7 +17,7 @@ export default function UserContextComponent({ children }) {
 
 	useEffect(() => {
 		// Listen authenticated user
-		const unsubscriber = onAuthStateChanged(auth, async (user) => {
+		const unsubscriber = onAuthStateChanged(auth, async (user: User) => {
 			try {
 				if (user) {
 					axios.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
