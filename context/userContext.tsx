@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import { createFirebaseApp } from "../firebase/clientApp";
+import { createFirebaseApp } from "../utils/firebase/clientApp";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { User } from "../types/User";
 

@@ -35,7 +35,7 @@ const createCollection = <T = DocumentData>(collectionName: string) => {
 	return collection(firestore, collectionName) as CollectionReference<T>;
 };
 
-import { User } from "../types/User";
+import { User } from "../../types/User";
 
 // export all your collections
 export const usersCol = createCollection<User>("users");
