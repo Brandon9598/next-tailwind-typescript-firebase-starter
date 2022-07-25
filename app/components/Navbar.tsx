@@ -17,12 +17,12 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar bg-neutral text-neutral-content">
-			<div className="navbar-start">
+			<div className="navbar-start mx-10">
 				<Link href="/" className="btn btn-ghost normal-case text-xl">
 					App Logo
 				</Link>
 			</div>
-			<div className="navbar-end flex-none md:hidden">
+			<div className="navbar-end flex-none md:hidden mx-10">
 				<div className="dropdown">
 					<label htmlFor="dropdown-menu" tabIndex={0}>
 						<MenuIcon />
@@ -33,10 +33,7 @@ const Navbar = () => {
 						className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52  text-neutral"
 					>
 						<li>
-							<Link href="link1">Link 1</Link>
-						</li>
-						<li>
-							<Link href="link2">Link 2</Link>
+							<Link href="/posts">Posts</Link>
 						</li>
 						<li>
 							{!user ? (
@@ -52,16 +49,11 @@ const Navbar = () => {
 					</ul>
 				</div>
 			</div>
-			<div className="navbar-end hidden md:flex ">
+			<div className="navbar-end hidden md:flex mx-10 gap-3">
 				<ul className="menu menu-horizontal p-0">
 					<li tabIndex={0}>
-						<Link className="btn btn-link no-animation active:bg-red-500" href="link1">
-							Link 1
-						</Link>
-					</li>
-					<li>
-						<Link className="" href="link2">
-							Link 2
+						<Link className="btn btn-link no-animation active:bg-red-500" href="/posts">
+							Posts
 						</Link>
 					</li>
 					<li>

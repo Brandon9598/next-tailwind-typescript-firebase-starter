@@ -36,19 +36,6 @@ const signInWithGoogle = () => {
 		});
 };
 
-// SOURCE: https://javascript.plainenglish.io/using-firestore-with-typescript-in-the-v9-sdk-cf36851bb099
-// Export firestore incase we need to access it directly
-const firestore = getFirestore();
+// To access firstore directly ->  SOURCE: https://javascript.plainenglish.io/using-firestore-with-typescript-in-the-v9-sdk-cf36851bb099
 
-// This is just a helper to add the type to the db responses
-const createCollection = <T = DocumentData>(collectionName: string) => {
-	return collection(firestore, collectionName) as CollectionReference<T>;
-};
-
-// Import all your model types
-import { User } from "@backend/User";
-
-// export all your collections
-const usersCol = createCollection<User>("users");
-
-export { firestore, usersCol, auth, signInWithGoogle, onAuthStateChanged };
+export { auth, signInWithGoogle, onAuthStateChanged };
