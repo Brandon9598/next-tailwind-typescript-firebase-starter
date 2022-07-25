@@ -46,7 +46,7 @@ const createCollection = <T = DocumentData>(collectionName: string) => {
 };
 
 // Import all your model types
-import { User } from "../../types/User";
+import { User } from "@backend/User";
 
 // export all your collections
 const usersCol = createCollection<User>("users");
