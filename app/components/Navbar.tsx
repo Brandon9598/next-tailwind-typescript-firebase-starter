@@ -1,7 +1,7 @@
 import Link from "next/link";
 import MenuIcon from "@mui/icons-material/Menu";
 import React from "react";
-import { auth, signInWithGoogle } from "../utils/firebase/clientApp";
+import { auth, signInWithGoogle } from "../utils/firebase";
 import { useUser } from "../context/userContext";
 
 const Navbar = () => {

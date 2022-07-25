@@ -1,5 +1,5 @@
 import { useState, useEffect, createContext, useContext } from "react";
-import { auth, onAuthStateChanged } from "../utils/firebase/clientApp";
+import { auth, onAuthStateChanged } from "../utils/firebase";
 import axios, { AxiosResponse } from "axios";
 import { User } from "@backend/User";
 
