@@ -1,6 +1,6 @@
 import { useState, useEffect, createContext, useContext } from "react";
 import { auth, onAuthStateChanged } from "../utils/firebase/clientApp";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { User } from "@backend/User";
 
 export interface IUserContext {
@@ -21,12 +21,12 @@ export default function UserContextComponent({ children }) {
 			try {
 				if (user) {
 					axios.defaults.headers.common["Authorization"] = `Bearer ${user.accessToken}`;
-					// User is signed in.
-					const { uid, displayName, email } = user;
-					// You could also look for the user doc in your Firestore (if you have one):
-
-					// const userDoc = await firebase.firestore().doc(`users/${uid}`).get()
-					setUser({ uid, displayName, email });
+					// Look for the user doc in your Firestore (if you have one):
+					const fbUser = await axios
+						.get(`/users`)
+						.then((res: AxiosResponse) => res.data)
+						.catch(() => null);
+					setUser({ ...fbUser, ...user });
 				} else setUser(null);
 			} catch (error) {
 				setUser(null);

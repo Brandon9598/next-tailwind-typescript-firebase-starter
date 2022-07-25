@@ -3,4 +3,5 @@ export interface User {
 	displayName: string;
 	email: string;
 	accessToken?: string;
+	created?: string; // ISO Timestamp
 }
